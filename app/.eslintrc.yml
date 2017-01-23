@@ -1,0 +1,10 @@
+plugins:
+  - angular
+  - import
+extends:
+  - eslint:recommended
+  - angular
+  - plugin:import/errors
+  - plugin:import/warnings
+env:
+    browser: true
