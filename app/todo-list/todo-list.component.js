@@ -1,11 +1,28 @@
 class TodoListController {
+  constructor(TodoList) {
+    this.TodoList = TodoList;
+    this.todos = [];
+    this.text = '';
+  }
 
+  addTodo() {
+    if (this.text.length > 0) {
+      this.todos.push(new this.TodoList(this.text));
+      this.text = '';
+    }
+  }
 }
 
-TodoListController.$inject = [];
+TodoListController.$inject = [ 'TodoList' ];
 
 const todoList = {
-  template: 'todo-list',
+  template: `
+    <input type="text" ng-model="vm.text">
+    <button ng-click="vm.addTodo()">Add ToDo</button>
+    <div ng-repeat="todo in vm.todos">
+      <span><input type="checkbox">{{ todo.task }}</span>
+    </div>
+  `,
   controller: TodoListController,
   controllerAs: 'vm'
 };

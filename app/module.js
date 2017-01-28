@@ -11,6 +11,8 @@ import auth from './auth/auth.component';
 
 import AuthService from './auth/auth.service';
 
+import TodoList from './todo-list/todo-list.model';
+
 import { routes, values } from './config';
 
 export default module('todo-app', [ ngRoute ])
@@ -22,4 +24,6 @@ export default module('todo-app', [ ngRoute ])
   .component('auth', auth)
 
   .service('AuthService', AuthService)
+
+  .factory('TodoList', TodoList)
   .name;

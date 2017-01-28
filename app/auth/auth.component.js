@@ -1,9 +1,10 @@
 import tpl from './auth.component.html';
 
 class AuthController {
-  constructor($location, AuthService) {
+  constructor($location, AuthService, $log) {
     this.location = $location;
     this.auth = AuthService;
+    this.$log = $log;
 
     this.showError = false;
     this.errorMsg = '';
@@ -17,7 +18,7 @@ class AuthController {
   doLogin() {
     this.auth.doLogin(this.creds)
       .then(data => {
-        console.log(data);
+        this.$log.log(data);
         this.location.url('/todo-list');
       })
       .catch(msg => {
@@ -27,7 +28,7 @@ class AuthController {
   }
 }
 
-AuthController.$inject = [ '$location', 'AuthService' ];
+AuthController.$inject = [ '$location', 'AuthService', '$log' ];
 
 const auth = {
   template: tpl,
