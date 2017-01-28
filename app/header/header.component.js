@@ -6,10 +6,10 @@ class HeaderController {
   }
 }
 
-const headerComponent = {
+const header = {
   controller: HeaderController,
-  controllerAs: 'hc',
+  controllerAs: 'vm',
   template: tpl
 };
 
-export default headerComponent;
+export default header;

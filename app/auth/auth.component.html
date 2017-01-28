@@ -1,6 +1,6 @@
 <section>
-    <span ng-show="vm.showError">Error!</span>
-    <input type="text" placeholder="Login">
-    <input type="password" placeholder="Password">
-    <button type="button">Login</button>
+    <span ng-show="vm.showError">{{ vm.errorMsg }}</span>
+    <input type="text" placeholder="Login" ng-model="vm.creds.login">
+    <input type="password" placeholder="Password" ng-model="vm.creds.password">
+    <button type="button" ng-click="vm.doLogin()">Login</button>
 </section>

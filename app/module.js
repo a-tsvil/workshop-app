@@ -3,15 +3,23 @@ import {
 } from 'angular';
 import ngRoute from 'angular-route';
 
+import header from './header/header.component';
 import appComponent from './app.component';
-import headerComponent from './header/header.component';
-import someComponent from './some-component/some.component';
+import footer from './footer/footer.component';
+import todoList from './todo-list/todo-list.component';
+import auth from './auth/auth.component';
 
-import { config, values } from './config';
+import AuthService from './auth/auth.service';
+
+import { routes, values } from './config';
 
 export default module('todo-app', [ ngRoute ])
-  .config(config).config(values)
+  .config(routes).config(values)
+  .component('header', header)
   .component('appComponent', appComponent)
-  .component('header', headerComponent)
-  .component('someComponent', someComponent)
+  .component('footer', footer)
+  .component('todoList', todoList)
+  .component('auth', auth)
+
+  .service('AuthService', AuthService)
   .name;

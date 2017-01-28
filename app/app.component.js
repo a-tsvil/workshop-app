@@ -1,14 +1,23 @@
 class AppController {
-  constructor() {
-    this.message = 'Hello Photogramm!';
+  constructor($location, AuthService) {
+    this.location = $location;
+    this.auth = AuthService;
+
+    if (!this.auth.isLoggedIn) {
+      this.location.url('/auth');
+    }
   }
 }
+
+AppController.$inject = [ '$location', 'AuthService' ];
 
 const appComponent = {
   controller: AppController,
   template: `
     <div>
-      <h1>{{ $ctrl.message }}</h1>
+      <header></header>
+      <div ng-view></div>
+      <footer></footer>
     </div>
   `
 };
