@@ -13,10 +13,15 @@ import AuthService from './auth/auth.service';
 
 import TodoList from './todo-list/todo-list.model';
 
+import done from './todo-list/done.directive';
+
 import { routes, values } from './config';
 
 export default module('todo-app', [ ngRoute ])
   .config(routes).config(values)
+
+  .directive('done', done)
+
   .component('header', header)
   .component('appComponent', appComponent)
   .component('footer', footer)
@@ -26,4 +31,5 @@ export default module('todo-app', [ ngRoute ])
   .service('AuthService', AuthService)
 
   .factory('TodoList', TodoList)
+  
   .name;

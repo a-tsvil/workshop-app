@@ -20,7 +20,7 @@ const todoList = {
     <input type="text" ng-model="vm.text">
     <button ng-click="vm.addTodo()">Add ToDo</button>
     <div ng-repeat="todo in vm.todos">
-      <span><input type="checkbox">{{ todo.task }}</span>
+      <span done="todo"><input type="checkbox" ng-click="todo.complete()">{{ todo.task }}</span>
     </div>
   `,
   controller: TodoListController,

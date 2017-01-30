@@ -1,7 +1,7 @@
 function TodoList() {
   return function(task) {
     this.task = task;
-    this.isCompelete = false;
+    this.isComplete = false;
 
     this.complete = () => {
       this.isComplete = true;
